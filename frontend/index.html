@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Аренда домов</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: #f5f7fa;
+      padding: 20px;
+    }
+
+    .search-container {
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    .search-container input {
+      width: 80%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    .cards-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 100px;
+    }
+
+    .card {
+      width: 300px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 16px;
+    }
+
+    .card h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+
+    .price {
+      font-weight: bold;
+      font-size: 18px;
+      color: #2c8a43;
+      margin-bottom: 12px;
+    }
+
+    .btn-rent {
+      width: 100%;
+      padding: 10px;
+      background: #4a90e2;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn-rent:hover {
+      background: #357abd;
+    }
+
+    .footer-buttons {
+      text-align: center;
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .footer-buttons button {
+      padding: 12px 24px;
+
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background: #6c757d;
+      color: white;
+    }
+
+    .footer-buttons button:hover {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+
+<div class="search-container">
+  <input type="text" id="searchInput" placeholder="Поиск домов..." />
+</div>
+
+<div class="footer-buttons">
+  <button id="btnAdd">Добавить</button>
+  <button id="btnMyBookings">Мои брони</button>
+</div>
+
+<div class="cards-container" id="cardsContainer"></div>
+
+<script>
+
+const houses = [
+    {
+      id: 1,
+      title: "Уютный домик у моря",
+      description: "Идеальное место для отдыха с семьёй. Есть терраса и вид на закат.",
+      price: 3500,
+      image: "https://via.placeholder.com/300x180?text=Дом+1"
+    },
+    {
+      id: 2,
+      title: "Лесной коттедж",
+      description: "Тишина, свежий воздух и полное уединение в живописном лесу.",
+      price: 2800,
+      image: "https://via.placeholder.com/300x180?text=Дом+2"
+    },
+    {
+      id: 3,
+      title: "Современная вилла",
+      description: "Роскошная вилла с бассейном и панорамным видом на горы.",
+      price: 8000,
+      image: "https://via.placeholder.com/300x180?text=Вилла"
+    }
+  ];
+
+  function createCard(house) {
+    const card = document.createElement('div');
+    card.className = 'card';
+
+    card.innerHTML = `
+      <img src="${house.image}" alt="${house.title}">
+      <div class="card-content">
+        <h3>${house.title}</h3>
+        <p>${house.description}</p>
+        <div class="price">${house.price} ₽ / ночь</div>
+        <button class="btn-rent" data-id="${house.id}">Арендовать</button>
+      </div>
+    `;
+
+    return card;
+  }
+
+  const cardsContainer = document.getElementById('cardsContainer');
+  houses.forEach(house => {
+    cardsContainer.appendChild(createCard(house));
+  });
+
+  document.getElementById('btnAdd').addEventListener('click', () => {
+    alert('Функция добавления — в разработке');
+  });
+
+  document.getElementById('btnMyBookings').addEventListener('click', () => {
+    alert('Мои брони — в разработке');
+  });
+
+  cardsContainer.addEventListener('click', (e) => {
+      alert(`Вы нажали "Арендовать"`);
+  });
+</script>
+
+</body>
+</html>
