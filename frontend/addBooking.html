@@ -166,7 +166,26 @@
 </div>
 
 <script>
-  
+  document.getElementById('backBtn').addEventListener('click', () => {
+    window.location.href = "index.html"
+  });
+
+  document.getElementById('saveBtn').addEventListener('click', () => {
+    const title = document.getElementById("title").value.trim()
+    const description = document.getElementById("description").value.trim()
+    const price = document.getElementById("price").value
+    const file = imageInput.files[0];
+
+    const playload = {
+      id: Date.now(),
+      title: title,
+      description:description,
+      price: Number(price),
+      image: imageUrl
+    }
+
+    сonsole.log(playload)
+  });
 </script>
 
 </body>
