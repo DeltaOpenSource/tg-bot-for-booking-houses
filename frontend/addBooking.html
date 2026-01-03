@@ -185,7 +185,7 @@
       image: preview.src
     }
 
-    localStorage.setItem("objectHouse", payload);
+    localStorage.setItem("objectHouse", JSON.stringify(payload));
   }); 
 
   imageInput.addEventListener("change", function() {
