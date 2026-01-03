@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Добавить дом</title>
+  <title>Добавить аренду</title>
   <style>
     * {
       box-sizing: border-box;
@@ -166,6 +166,9 @@
 </div>
 
 <script>
+  imageInput = document.getElementById("image")
+  preview = document.getElementById("preview")
+
   document.getElementById('backBtn').addEventListener('click', () => {
     window.location.href = "index.html"
   });
@@ -174,19 +177,28 @@
     const title = document.getElementById("title").value.trim()
     const description = document.getElementById("description").value.trim()
     const price = document.getElementById("price").value
-    const file = imageInput.files[0];
 
-    const playload = {
-      id: Date.now(),
-      title: title,
-      description:description,
-      price: Number(price),
-      image: imageUrl
-    }
+    imageInput.addEventListener("change", function() {
+      const file = this.files[0]
 
-    сonsole.log(playload)
+      if (file) {
+        const reader = new FileReader()
+
+        reader.onload = function(el){
+          preview.src = el.target.result
+          preview.style.display = "block"
+        }
+
+        reader.readAsDataURL(file);
+
+
+      } else {
+        preview.style.display = "none"
+      }
+    })
   });
 </script>
 
 </body>
 </html>
+
