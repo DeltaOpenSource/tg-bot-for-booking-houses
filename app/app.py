@@ -48,7 +48,7 @@ async def tel_send_message(chat_id, text):
         "reply_markup": {
             "inline_keyboard": [
                 [
-                    {"text": "Открыть бронировщик", "web_app": {"url": "https://deltaopensource.github.io/tg-bot-crypto/frontend/"}},
+                    {"text": "Открыть приложение", "web_app": {"url": "https://deltaopensource.github.io/tg-bot-crypto/frontend/"}},
                 ]
             ]
         }
@@ -101,7 +101,7 @@ async def webhook(request: Request, background_tasks: BackgroundTasks):
 
     elif txt.lower() == "/start":
         await tel_send_message(chat_id, 
-            "Добро пожаловать в бронировку домов! "
+            "Добро пожаловать в crypto! "
         )
 
     return JSONResponse(content={"status": "ok"}, status_code=200)
