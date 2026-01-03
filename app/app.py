@@ -24,7 +24,7 @@ def parse_message(message):
 async def setwebhook():
     url = f"https://api.telegram.org/bot{TOKEN}/setWebhook"
     payload = {
-        "url": "https://tg-bot-for-booking-houses.vercel.app/webhook",
+        "url": "https://tg-bot-crypto.vercel.app/webhook",
         "allowed_updates": ["message", "callback_query", "my_chat_member"]
     }
     async with httpx.AsyncClient() as client:
@@ -48,7 +48,7 @@ async def tel_send_message(chat_id, text):
         "reply_markup": {
             "inline_keyboard": [
                 [
-                    {"text": "Открыть бронировщик", "web_app": {"url": "https://deltaopensource.github.io/tg-bot-for-booking-houses/frontend/"}},
+                    {"text": "Открыть бронировщик", "web_app": {"url": "https://deltaopensource.github.io/tg-bot-crypto/frontend/"}},
                 ]
             ]
         }
