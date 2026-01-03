@@ -177,6 +177,15 @@
     const title = document.getElementById("title").value.trim()
     const description = document.getElementById("description").value.trim()
     const price = document.getElementById("price").value
+
+    const payload = {
+      title: title,
+      description: description,
+      price: Number(price),
+      image: preview.src
+    }
+
+    console.log(payload)
   }); 
 
   imageInput.addEventListener("change", function() {
@@ -199,5 +208,4 @@
 
 </body>
 </html>
-
 
